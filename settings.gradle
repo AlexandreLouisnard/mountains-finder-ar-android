@@ -1,1 +1,1 @@
-include ':argps', ':argpsapp'
+include ':app'

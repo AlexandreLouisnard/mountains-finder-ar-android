@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.louisnard.argpsapp">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.louisnard.mountainsfinderar" >
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
         android:theme="@style/Theme.AppCompat.NoActionBar">
 
-        <activity android:name=".MainActivity">
+        <activity android:name="com.louisnard.mountainsfinderar.activities.AugmentedRealityActivity"
+            android:label="@string/activity_augmented_reality"
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.louisnard.mountainsfinderar.activities.SettingsActivity"
+            android:label="@string/activity_settings"
+            android:parentActivityName="com.louisnard.mountainsfinderar.activities.AugmentedRealityActivity"
+            android:screenOrientation="fullSensor">
+        </activity>
+
+        <activity android:name="com.louisnard.mountainsfinderar.activities.PointsListActivity"
+            android:label="@string/activity_points_list"
+            android:parentActivityName="com.louisnard.mountainsfinderar.activities.SettingsActivity"
+            android:screenOrientation="fullSensor">
+        </activity>
+
     </application>
 
 </manifest>
